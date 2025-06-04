@@ -6,21 +6,28 @@ import Button from "../ui/button";
 import { ArrowRight, ChevronDown, ChevronUp, Menu, X } from "lucide-react";
 import { MapPin } from "lucide-react";
 import { Mail } from "lucide-react";
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import { FaFacebookF } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import { RiLinkedinFill } from "react-icons/ri";
 
-const Navbar = () => {
-  const [navOpen, setNavOpen] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
-  const handleNavClick = () => {
-    setNavOpen(!navOpen);
+const Navbar: React.FC = () => {
+  const [navOpen, setNavOpen] = useState<boolean>(false);
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
+  const handleNavClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setNavOpen((prev) => !prev);
   };
+
+  const handleOtherInfoClick = () => {
+    setIsClicked((prev) => !prev);
+  };
+
   return (
-    <nav className="  ">
+    <nav>
       {/* top navigation */}
-      <div className="hidden md:flex bg-primary  px-[104px]  ">
+      <div className="hidden md:flex bg-primary  px-[104px]">
         <div className="flex items-center gap-x-4">
           <div className="flex items-center gap-x-2">
             <span>
@@ -80,7 +87,7 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-x-[115px]">
           <div className=" flex items-center ">
             <ul className="flex space-x-[41px] text-black">
-              <li className="">
+              <li>
                 <Link
                   href="/our-programs"
                   className="text-[16px] hover:text-primary"
@@ -178,9 +185,7 @@ const Navbar = () => {
               </li>
               <li
                 className="relative p-2 text-text-light"
-                onClick={() => {
-                  setIsClicked(!isClicked);
-                }}
+                onClick={handleOtherInfoClick}
               >
                 <div className="flex gap-x-1.5 items-center">
                   <Link href="/">Other Info</Link>{" "}
