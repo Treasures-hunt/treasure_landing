@@ -10,6 +10,7 @@ import { useState, MouseEvent } from "react";
 import { FaFacebookF } from "react-icons/fa6";
 import { RiInstagramFill } from "react-icons/ri";
 import { RiLinkedinFill } from "react-icons/ri";
+import Logo from "../ui/logo";
 
 const Navbar: React.FC = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -75,14 +76,15 @@ const Navbar: React.FC = () => {
       {/* bottom navigation */}
       <div className="container hidden md:flex justify-between items-center pt-[25px] ">
         <div className="px-[104px]">
-          <Link href="/">
+          {/* <Link href="/">
             <Image
               src="/assets/svg/logo.svg"
               alt="Logo"
               width={75}
               height={78}
             />
-          </Link>
+          </Link> */}
+          <Logo width={75} height={78} />
         </div>
         <div className="hidden md:flex items-center gap-x-[115px]">
           <div className=" flex items-center ">
@@ -147,14 +149,15 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center bg-primary px-[20px] py-[10px]">
           {/* Logo and menu icon */}
           <div>
-            <Link href="/" className="">
+            {/* <Link href="/" className="">
               <Image
                 src="/assets/svg/logo.svg"
                 alt="Logo"
                 width={40}
                 height={40}
               />
-            </Link>
+            </Link> */}
+            <Logo width={40} height={40} />
           </div>
           <Button onClick={handleNavClick}>
             {navOpen ? (
