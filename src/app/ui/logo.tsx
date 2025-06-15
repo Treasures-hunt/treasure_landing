@@ -8,11 +8,11 @@ type LogoProps = {
 };
 
 const Logo: React.FC<LogoProps> = ({
-  width = "auto",
-  height = "auto",
+  // width = "auto",
+  // height = "auto",
   className = "",
 }) => (
-  <div className={`relative ${className}`} style={{ width, height }}>
+  <div className={`relative ${className}`}>
     <Image
       src="/assets/svg/logo.svg"
       alt="Logo"
